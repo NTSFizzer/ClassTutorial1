@@ -4,11 +4,11 @@ using System.Windows.Forms;
 namespace Version_1_C
 {
     [Serializable()]
-    public class clsPhotograph : clsWork
+    public class ClsPhotograph : ClsWork
     {
-        private float theWidth;
-        private float theHeight;
-        private string theType;
+        private float _Width;
+        private float _Height;
+        private string _Type;
 
         public override void EditDetails()
         {

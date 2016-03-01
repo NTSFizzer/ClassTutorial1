@@ -3,12 +3,12 @@ using System.Collections;
 
 namespace Version_1_C
 {
-    class clsDateComparer : IComparer
+    class ClsDateComparer : IComparer
     {
         public int Compare(Object x, Object y)
         {
-            clsWork lcWorkX = (clsWork)x;
-            clsWork lcWorkY = (clsWork)y;
+            ClsWork lcWorkX = (ClsWork)x;
+            ClsWork lcWorkY = (ClsWork)y;
             DateTime lcDateX = lcWorkX.GetDate();
             DateTime lcDateY = lcWorkY.GetDate();
 

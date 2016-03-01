@@ -1,6 +1,6 @@
 namespace Version_1_C
 {
-    partial class frmSculpture
+    partial class FrmSculpture
     {
         /// <summary>
         /// Required designer variable.

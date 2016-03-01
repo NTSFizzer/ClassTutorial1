@@ -4,20 +4,20 @@ using System.Windows.Forms;
 namespace Version_1_C
 {
     [Serializable()] 
-    public class clsPainting : clsWork
+    public class ClsPainting : ClsWork
     {
         private float theWidth;
         private float theHeight;
         private string theType;
 
         [NonSerialized()]
-        private static frmPainting paintDialog;
+        private static FrmPainting paintDialog;
 
         public override void EditDetails()
         {
             if (paintDialog == null)
             {
-                paintDialog = new frmPainting();
+                paintDialog = new FrmPainting();
             }
             paintDialog.SetDetails(_Name, theDate, theValue, theWidth, theHeight, theType);
             if(paintDialog.ShowDialog() == DialogResult.OK)

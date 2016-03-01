@@ -5,14 +5,29 @@ using System.Windows.Forms;
 namespace Version_1_C
 {
     [Serializable()] 
-    public class clsWorksList : ArrayList
+    public class ClsWorksList : ArrayList
     {
-        private static clsNameComparer theNameComparer = new clsNameComparer();
-        private static clsDateComparer theDateComparer = new clsDateComparer();
-        
+        private static ClsNameComparer theNameComparer = new ClsNameComparer();
+        private static ClsDateComparer theDateComparer = new ClsDateComparer();
+
+        private byte _SortOrder;
+
+        public byte SortOrder
+        {
+            get
+            {
+                return _SortOrder;
+            }
+
+            set
+            {
+                _SortOrder = value;
+            }
+        }
+
         public void AddWork()
         {
-            clsWork lcWork = clsWork.NewWork();
+            ClsWork lcWork = ClsWork.NewWork();
             if (lcWork != null)
             {
                 Add(lcWork);
@@ -34,7 +49,7 @@ namespace Version_1_C
         {
             if (prIndex >= 0 && prIndex < this.Count)
             {
-                clsWork lcWork = (clsWork)this[prIndex];
+                ClsWork lcWork = (ClsWork)this[prIndex];
                 lcWork.EditDetails();
             }
             else
@@ -46,7 +61,7 @@ namespace Version_1_C
         public decimal GetTotalValue()
         {
             decimal lcTotal = 0;
-            foreach (clsWork lcWork in this)
+            foreach (ClsWork lcWork in this)
             {
                 lcTotal += lcWork.GetValue();
             }

@@ -1,6 +1,6 @@
 namespace Version_1_C
 {
-    partial class frmMain
+    partial class FrmMain
     {
         /// <summary>
         /// Required designer variable.
@@ -109,7 +109,7 @@ namespace Version_1_C
             this.Controls.Add(this.lstArtists);
             this.Name = "frmMain";
             this.Text = "Gallery (v1 C)";
-            this.Load += new System.EventHandler(this.frmMain_Load);
+            this.Load += new System.EventHandler(this.FrmMain_Load);
             this.ResumeLayout(false);
 
         }

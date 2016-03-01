@@ -8,10 +8,10 @@ using System.Windows.Forms;
 
 namespace Version_1_C
 {
-    public partial class frmWork : Form
+    public partial class FrmWork : Form
     {
 
-        public frmWork()
+        public FrmWork()
         {
             InitializeComponent();
         }

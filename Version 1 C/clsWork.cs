@@ -3,20 +3,20 @@ using System;
 namespace Version_1_C
 {
     [Serializable()] 
-    public abstract class clsWork
+    public abstract class ClsWork
     {
         protected string _Name;
         protected DateTime theDate = DateTime.Now;
         protected decimal theValue;
 
-        public clsWork()
+        public ClsWork()
         {
             EditDetails();
         }
 
         public abstract void EditDetails();
 
-         public static clsWork NewWork()
+         public static ClsWork NewWork()
          {
              char lcReply;
              InputBox inputBox = new InputBox("Enter P for Painting, S for Sculpture and H for Photograph");
@@ -28,9 +28,9 @@ namespace Version_1_C
 
                  switch (char.ToUpper(lcReply))
                  {
-                     case 'P': return new clsPainting();
-                     case 'S': return new clsSculpture();
-                     case 'H': return new clsPhotograph();
+                     case 'P': return new ClsPainting();
+                     case 'S': return new ClsSculpture();
+                     case 'H': return new ClsPhotograph();
                      default: return null;
                  }
              }

@@ -8,10 +8,10 @@ using System.Windows.Forms;
 
 namespace Version_1_C
 {
-    public partial class frmPhotograph : Version_1_C.frmWork
+    public partial class FrmPhotograph : Version_1_C.FrmWork
     {
 
-        public frmPhotograph()
+        public FrmPhotograph()
         {
             InitializeComponent();
         }

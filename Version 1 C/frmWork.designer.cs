@@ -1,6 +1,6 @@
 namespace Version_1_C
 {
-    partial class frmWork
+    partial class FrmWork
     {
         /// <summary>
         /// Required designer variable.

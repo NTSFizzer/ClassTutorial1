@@ -1,6 +1,6 @@
 namespace Version_1_C
 {
-    partial class frmArtist
+    partial class FrmArtist
     {
         /// <summary>
         /// Required designer variable.

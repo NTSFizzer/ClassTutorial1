@@ -3,45 +3,47 @@ using System;
 namespace Version_1_C
 {
     [Serializable()] 
-    public class clsArtist
+    public class ClsArtist
     {
-        private string name;
-        private string speciality;
-        private string phone;
-        
-        private decimal theTotalValue;
+        private string _Name;
+        private string _Speciality;
+        private string _Phone;
 
-        private clsWorksList theWorksList;
-        private clsArtistList theArtistList;
-        
-        private static frmArtist artistDialog = new frmArtist();
-        private byte sortOrder;
+  //      private byte _SortOrder;
 
-        public clsArtist(clsArtistList prArtistList)
+        private decimal _TotalValue;
+
+        private ClsWorksList _WorksList;
+        private ClsArtistList _ArtistList;
+        
+        private static FrmArtist ArtistDialog = new FrmArtist();
+       
+
+        public ClsArtist(ClsArtistList prArtistList)
         {
-            theWorksList = new clsWorksList();
-            theArtistList = prArtistList;
+            _WorksList = new ClsWorksList();
+            _ArtistList = prArtistList;
             EditDetails();
         }
         
         public void EditDetails()
         {
-            artistDialog.SetDetails(name, speciality, phone, sortOrder, theWorksList, theArtistList);
-            if (artistDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            ArtistDialog.SetDetails(_Name, _Speciality, _Phone, _WorksList, _ArtistList);
+            if (ArtistDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                artistDialog.GetDetails(ref name, ref speciality, ref phone, ref sortOrder);
-                theTotalValue = theWorksList.GetTotalValue();
+                ArtistDialog.GetDetails(ref _Name, ref _Speciality, ref _Phone);
+                _TotalValue = _WorksList.GetTotalValue();
             }
         }
 
         public string GetKey()
         {
-            return name;
+            return _Name;
         }
 
         public decimal GetWorksValue()
         {
-            return theTotalValue;
+            return _TotalValue;
         }
     }
 }

@@ -1,6 +1,6 @@
 namespace Version_1_C
 {
-    partial class frmPhotograph
+    partial class FrmPhotograph
     {
         /// <summary>
         /// Required designer variable.
