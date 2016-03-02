@@ -26,7 +26,7 @@ namespace Version_1_C
              {
                  lcReply = Convert.ToChar(inputBox.getAnswer());
 
-                 switch (char.ToUpper(lcReply))
+                 switch (char.ToUpper(lcReply))  //converts the characters entered to Uppercase - p = P, s = S, h = H.
                  {
                      case 'P': return new ClsPainting();
                      case 'S': return new ClsSculpture();
@@ -43,7 +43,7 @@ namespace Version_1_C
 
         public override string ToString()
         {
-            return _Name + "\t" + theDate.ToShortDateString();  
+            return _Name + "\t" + theDate.ToShortDateString() + "ooh yeah!";  
         }
         
         public string GetName()

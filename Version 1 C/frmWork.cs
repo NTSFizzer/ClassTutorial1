@@ -48,6 +48,5 @@ namespace Version_1_C
         {
             return true;
         }
-    
     }
 }

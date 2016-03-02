@@ -19,6 +19,8 @@ namespace Version_1_C
         private ClsWorksList _WorksList;
         private byte _SortOrder; // 0 = Name, 1 = Date
 
+        protected ClsArtist _Artist; //private member variable from clsArtist --> page 3 of notes 8.c
+
         private void UpdateDisplay()
         {
             txtName.Enabled = txtName.Text == "";
@@ -38,25 +40,23 @@ namespace Version_1_C
             lblTotal.Text = Convert.ToString(_WorksList.GetTotalValue());
         }
 
-        public void SetDetails(string prName, string prSpeciality, string prPhone, 
-                                           ClsWorksList prWorksList, ClsArtistList prArtistList)
+        public void SetDetails(ClsArtist prArtist)
         {
-            txtName.Text = prName;
-            txtSpeciality.Text = prSpeciality;
-            txtPhone.Text = prPhone;
-            _ArtistList = prArtistList;
-            _WorksList = prWorksList;
-            _SortOrder = _WorksList.SortOrder;
+            _Artist = prArtist;
+            UpdateForm();
             UpdateDisplay();
+            ShowDialog();
         }
 
-        public void GetDetails(ref string prName, ref string prSpeciality, ref string prPhone)
-        {
-            prName = txtName.Text;
-            prSpeciality = txtSpeciality.Text;
-            prPhone = txtPhone.Text;
-            _SortOrder = _WorksList.SortOrder;
-        }
+
+        //no longer needed as refactored out
+        //public void GetDetails(ref string prName, ref string prSpeciality, ref string prPhone)
+        //{
+        //    prName = txtName.Text;
+        //    prSpeciality = txtSpeciality.Text;
+        //    prPhone = txtPhone.Text;
+        //    _SortOrder = _WorksList.SortOrder;
+        //}
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
@@ -74,6 +74,7 @@ namespace Version_1_C
         {
             if (isValid())
             {
+                pushData(); //added just prior to closing the form to push the data back to the form
                 DialogResult = DialogResult.OK;
             }
         }
@@ -106,6 +107,21 @@ namespace Version_1_C
         {
             _SortOrder = Convert.ToByte(rbByDate.Checked);
             UpdateDisplay();
+        }
+
+        private void UpdateForm()
+        {
+            txtName.Text = _Artist.Name;
+            txtPhone.Text = _Artist.Phone;
+            txtSpeciality.Text = _Artist.Speciality;
+        }
+
+        private void pushData()
+        {
+            _Artist.Name = txtName.Text;
+            _Artist.Phone = txtPhone.Text;
+            _Artist.Speciality = txtSpeciality.Text;
+
         }
 
     }
