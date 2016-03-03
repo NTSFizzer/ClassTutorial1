@@ -15,8 +15,8 @@ namespace Version_1_C
             InitializeComponent();
         }
 
-        private ClsArtistList _ArtistList;
         private ClsWorksList _WorksList;
+
         private byte _SortOrder; // 0 = Name, 1 = Date
 
         protected ClsArtist _Artist; //private member variable from clsArtist --> page 3 of notes 8.c
@@ -74,7 +74,7 @@ namespace Version_1_C
         {
             if (isValid())
             {
-                pushData(); //added just prior to closing the form to push the data back to the form
+                pushData();                     //added just prior to closing the form to push the data back to the form
                 DialogResult = DialogResult.OK;
             }
         }
@@ -82,7 +82,7 @@ namespace Version_1_C
         public virtual Boolean isValid()
         {
             if (txtName.Enabled && txtName.Text != "")
-                if (_ArtistList.Contains(txtName.Text))
+                if (_Artist.IsDuplicate(txtName.Text))
                 {
                     MessageBox.Show("Artist with that name already exists!");
                     return false;

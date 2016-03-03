@@ -66,18 +66,22 @@ namespace Version_1_C
         }
 
         //moved from frmMain.cs
-        public void Retrieve()
+        public ClsArtistList Retrieve()
         {
+            ClsArtistList lcArtistList; //local variable for this method
 
             try
             {
+                // ClsArtistList lcArtistList; //local variable for this method
+
                 System.IO.FileStream lcFileStream = new System.IO.FileStream(_FileName, System.IO.FileMode.Open);
                 System.Runtime.Serialization.Formatters.Soap.SoapFormatter lcFormatter =
                     new System.Runtime.Serialization.Formatters.Soap.SoapFormatter();
 
-                _ArtistList = (ClsArtistList)lcFormatter.Deserialize(lcFileStream);
-       
+                lcArtistList = (ClsArtistList)lcFormatter.Deserialize(lcFileStream);
+
                 lcFileStream.Close();
+                return lcArtistList;
             }
 
             catch (Exception e)
@@ -86,6 +90,5 @@ namespace Version_1_C
             }
 
         }
-
     }
 }

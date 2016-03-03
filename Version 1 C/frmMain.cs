@@ -80,50 +80,11 @@ namespace Version_1_C
             }
         }
 
-        //private void Save()
-        //{
-        //    try
-        //    {
-        //        System.IO.FileStream lcFileStream = new System.IO.FileStream(fileName, System.IO.FileMode.Create);
-        //        System.Runtime.Serialization.Formatters.Soap.SoapFormatter lcFormatter =
-        //            new System.Runtime.Serialization.Formatters.Soap.SoapFormatter();
-
-        //        lcFormatter.Serialize(lcFileStream, theArtistList);
-        //        lcFileStream.Close();
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        MessageBox.Show(e.Message, "File Save Error");
-        //    }
-        //}
-
-
-        private ClsArtistList lcArtistList;
-
-
         private void FrmMain_Load(object sender, EventArgs e)
         {
-            _ArtistList.Retrieve();
+            _ArtistList = ClsArtistList.Retrieve();
             UpdateDisplay();
         }
 
-        private void LoadForm()
-            //renamed from private void InitializeComponent
-        {
-            this.SuspendLayout();
-            // 
-            // frmMain
-            // 
-            this.ClientSize = new System.Drawing.Size(284, 261);
-            this.Name = "frmMain";
-            this.Load += new System.EventHandler(this.frmMain_Load_1);
-            this.ResumeLayout(false);
-
-        }
-
-        private void frmMain_Load_1(object sender, EventArgs e)
-        {
-
-        }
     }
 }

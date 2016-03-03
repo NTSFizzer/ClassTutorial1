@@ -9,8 +9,6 @@ namespace Version_1_C
         private string _Speciality;
         private string _Phone;
 
-  //      private byte _SortOrder;
-
         private decimal _TotalValue;
 
         private ClsWorksList _WorksList;
@@ -67,16 +65,24 @@ namespace Version_1_C
             {
                 return TotalValue;
             }
+        }
 
-            //set
-            //{
-            //    _TotalValue = value;
-            //}
+        public ClsWorksList WorksList
+        {
+            get
+            {
+                return _WorksList;
+            }
+
+            set
+            {
+                _WorksList = value;
+            }
         }
 
         public ClsArtist(ClsArtistList prArtistList)
         {
-            _WorksList = new ClsWorksList();
+            WorksList = new ClsWorksList();
             _ArtistList = prArtistList;
             EditDetails();
         }
@@ -89,8 +95,13 @@ namespace Version_1_C
             if (ArtistDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                // ArtistDialog.GetDetails(ref _Name, ref _Speciality, ref _Phone);
-                _TotalValue = _WorksList.GetTotalValue();
+                _TotalValue = WorksList.GetTotalValue();
             }
+        }
+        
+        public bool IsDuplicate(string prArtistName)
+        {
+            return _ArtistList.ContainsKey(prArtistName);
         }
 
         //public string GetKey()
