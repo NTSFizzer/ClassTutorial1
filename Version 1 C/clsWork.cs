@@ -12,41 +12,20 @@ namespace Version_1_C
 
         public string Name
         {
-            get
-            {
-                return _Name;
-            }
-
-            set
-            {
-                _Name = value;
-            }
+            get { return _Name; }
+            set { _Name = value; }
         }
 
         public decimal Value
         {
-            get
-            {
-                return _Value;
-            }
-
-            set
-            {
-                this._Value = value;
-            }
+            get { return _Value; }
+            set { this._Value = value; }
         }
 
         public DateTime Date
         {
-            get
-            {
-                return _Date;
-            }
-
-            set
-            {
-                _Date = value;
-            }
+            get { return _Date; }
+            set { _Date = value; }
         }
 
         public ClsWork()
@@ -80,6 +59,24 @@ namespace Version_1_C
                  return null;
              }
          }
+
+
+        //public string GetName()
+        //{
+        //    return _Name;
+        //}
+
+        //public DateTime GetDate()
+        //{
+        //    return Date;
+        //}
+
+        //public decimal GetValue()
+        //{
+        //    return Value;
+        //}
+
+
 
         public override string ToString()
         {
