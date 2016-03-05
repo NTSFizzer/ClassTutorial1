@@ -7,10 +7,10 @@ namespace Version_1_C
     [Serializable()] 
     public class ClsWorksList : ArrayList
     {
-        private static ClsNameComparer theNameComparer = new ClsNameComparer();
-        private static ClsDateComparer theDateComparer = new ClsDateComparer();
+        private static ClsNameComparer _NameComparer = new ClsNameComparer();
+        private static ClsDateComparer _DateComparer = new ClsDateComparer();
 
-        private byte _SortOrder;
+        private byte _SortOrder; // field moved from clsArtist.cs
 
         public byte SortOrder
         {
@@ -63,19 +63,19 @@ namespace Version_1_C
             decimal lcTotal = 0;
             foreach (ClsWork lcWork in this)
             {
-                lcTotal += lcWork.GetValue();
+                lcTotal += lcWork.Value();
             }
             return lcTotal;
         }
 
          public void SortByName()
          {
-             Sort(theNameComparer);
+             Sort(_NameComparer);
          }
     
         public void SortByDate()
         {
-            Sort(theDateComparer);
+            Sort(_DateComparer);
         }
     }
 }

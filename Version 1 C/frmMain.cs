@@ -16,14 +16,10 @@ namespace Version_1_C
         public FrmMain()
         {
             InitializeComponent();
-            //there is a second Private Void below with the same constructor name
-            // private void InitializeComponent ????? renamed
+            //there was a second Private Void below with the same constructor name
         }
 
-        private ClsArtistList _ArtistList = new ClsArtistList(); //no longer required
-
-
-        //        private const string _FileName = "gallery.xml";
+        private ClsArtistList _ArtistList; // = new ClsArtistList(); //no longer required
 
         private void UpdateDisplay()
         {
@@ -85,6 +81,5 @@ namespace Version_1_C
             _ArtistList = ClsArtistList.Retrieve();
             UpdateDisplay();
         }
-
     }
 }

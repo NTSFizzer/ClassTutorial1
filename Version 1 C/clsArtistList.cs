@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace Version_1_C
 {
-    [Serializable()] 
+    [Serializable()]
     public class ClsArtistList : SortedList
     {
         private const string _FileName = "GallerySaveFile.xml"; //moved from frmMain
@@ -66,14 +66,13 @@ namespace Version_1_C
         }
 
         //moved from frmMain.cs
-        public ClsArtistList Retrieve()
+        //this is now a static method. 
+        public static ClsArtistList Retrieve()
         {
             ClsArtistList lcArtistList; //local variable for this method
 
             try
             {
-                // ClsArtistList lcArtistList; //local variable for this method
-
                 System.IO.FileStream lcFileStream = new System.IO.FileStream(_FileName, System.IO.FileMode.Open);
                 System.Runtime.Serialization.Formatters.Soap.SoapFormatter lcFormatter =
                     new System.Runtime.Serialization.Formatters.Soap.SoapFormatter();
@@ -81,14 +80,14 @@ namespace Version_1_C
                 lcArtistList = (ClsArtistList)lcFormatter.Deserialize(lcFileStream);
 
                 lcFileStream.Close();
-                return lcArtistList;
             }
 
             catch (Exception e)
             {
                 MessageBox.Show(e.Message, "File Retrieve Error");
+                lcArtistList = new ClsArtistList();
             }
-
+            return lcArtistList;
         }
     }
 }

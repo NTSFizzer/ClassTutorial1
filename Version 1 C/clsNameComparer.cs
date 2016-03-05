@@ -9,8 +9,8 @@ namespace Version_1_C
         {
             ClsWork workClassX = (ClsWork)x;
             ClsWork workClassY = (ClsWork)y;
-            string lcNameX = workClassX.GetName();
-            string lcNameY = workClassY.GetName();
+            string lcNameX = workClassX.Name();
+            string lcNameY = workClassY.Name();
 
             return lcNameX.CompareTo(lcNameY);
         }

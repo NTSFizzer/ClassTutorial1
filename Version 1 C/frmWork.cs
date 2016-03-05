@@ -16,25 +16,35 @@ namespace Version_1_C
             InitializeComponent();
         }
 
-        public void SetDetails(string prName, DateTime prDate, decimal prValue)
+        protected ClsWork _Work;
+
+        protected virtual void UpdateForm()
         {
-            txtName.Text = prName;
-            txtCreation.Text = prDate.ToShortDateString();
-            txtValue.Text = Convert.ToString(prValue);
+            txtName.Text = _Work.Name;
+            txtCreation.Text = _Work.Date.ToShortDateString();
+            txtValue.Text = _Work.Value.ToString();
         }
 
-        public void GetDetails(ref string prName, ref DateTime prDate, ref decimal prValue)
+        protected virtual void PushData()
         {
-            prName = txtName.Text;
-            prDate = Convert.ToDateTime(txtCreation.Text);
-            prValue = Convert.ToDecimal(txtValue.Text);
+            _Work.Name = txtName.Text;
+            _Work.Date = DateTime.Parse(txtCreation.Text);
+            _Work.Value = decimal.Parse(txtValue.Text);
+        }
+
+        public void SetDetails(ClsWork prWork)
+        {
+            _Work = prWork;
+            UpdateForm();
+            ShowDialog();
+       
         }
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            if (isValid() == true)
+            if (isValid())
             {
-                DialogResult = DialogResult.OK;
+                PushData();
                 Close();
             }
         }

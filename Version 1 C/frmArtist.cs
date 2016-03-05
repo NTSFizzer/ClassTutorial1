@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 //using System.Collections;
 using System.ComponentModel;
 using System.Data;
@@ -15,11 +16,26 @@ namespace Version_1_C
             InitializeComponent();
         }
 
-        private ClsWorksList _WorksList;
+        private ClsWorksList _WorksList;    // link from this form to ClsWorksList via _WorksList
+        // private ClsArtistList _ArtistList;  // link from the Form FrmArtist to ClsArtistList
+        //removed to reduce Inappropriate Intimacy. Refactored via Hiding Delegate (aka Hide Delegate)
 
+        private ClsArtist _Artist; //private member variable from ClsArtist --> page 3 of notes 8.c
+
+        //private ClsWorksList _SortOrder;
         private byte _SortOrder; // 0 = Name, 1 = Date
 
-        protected ClsArtist _Artist; //private member variable from clsArtist --> page 3 of notes 8.c
+
+        //class ClsNameComparer : IComparer<ClsWorksList>
+        //{
+        //    public int Compare(ClsWorksList prArtistX, ClsWorksList prArtistY)
+        //    {
+        //        return prArtistX.SortOrder.CompareTo(prArtistY.SortOrder.CompareTo.Name);
+        //    }
+        //}
+
+        //private IComparer<ClsWorksList>[] _Comparer = { new ClsNameComparer(), new ClsDateComparer() };
+        //private readonly string[] _SortStrings = { "Name", "Date" };
 
         private void UpdateDisplay()
         {
@@ -37,26 +53,28 @@ namespace Version_1_C
 
             lstWorks.DataSource = null;
             lstWorks.DataSource = _WorksList;
-            lblTotal.Text = Convert.ToString(_WorksList.GetTotalValue());
+           // lblTotal.Text = Convert.ToString(_WorksList.GetTotalValue());
         }
+
 
         public void SetDetails(ClsArtist prArtist)
         {
+            //parameters removed, and object preserved whole
+            //direction changed form Unidirectional to Bidirectional Association
+
             _Artist = prArtist;
             UpdateForm();
             UpdateDisplay();
-            ShowDialog();
+            ShowDialog();  
+                   
+            //txtName.Text = prName;
+            //txtSpeciality.Text = prSpeciality;
+            //txtPhone.Text = prPhone;
+            //_ArtistList = prArtistList;
+            //_WorksList = prWorksList;
+            //_SortOrder = _WorksList.SortOrder;
+            //UpdateDisplay();
         }
-
-
-        //no longer needed as refactored out
-        //public void GetDetails(ref string prName, ref string prSpeciality, ref string prPhone)
-        //{
-        //    prName = txtName.Text;
-        //    prSpeciality = txtSpeciality.Text;
-        //    prPhone = txtPhone.Text;
-        //    _SortOrder = _WorksList.SortOrder;
-        //}
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
@@ -109,6 +127,7 @@ namespace Version_1_C
             UpdateDisplay();
         }
 
+        //responsible for populating the form
         private void UpdateForm()
         {
             txtName.Text = _Artist.Name;
@@ -116,6 +135,7 @@ namespace Version_1_C
             txtSpeciality.Text = _Artist.Speciality;
         }
 
+        //responsible for pushing the details back to the class when the user closes the form
         private void pushData()
         {
             _Artist.Name = txtName.Text;
