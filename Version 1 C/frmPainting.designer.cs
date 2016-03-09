@@ -28,12 +28,15 @@ namespace Version_1_C
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPainting));
             this.txtType = new System.Windows.Forms.TextBox();
             this.Label6 = new System.Windows.Forms.Label();
             this.txtHeight = new System.Windows.Forms.TextBox();
             this.Label5 = new System.Windows.Forms.Label();
             this.txtWidth = new System.Windows.Forms.TextBox();
             this.Label4 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtType
@@ -81,24 +84,38 @@ namespace Version_1_C
             this.Label4.TabIndex = 46;
             this.Label4.Text = "Width";
             // 
-            // frmPainting
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(225, 73);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(104, 124);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 51;
+            this.pictureBox1.TabStop = false;
+            // 
+            // FrmPainting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(352, 213);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txtWidth);
             this.Controls.Add(this.Label4);
             this.Controls.Add(this.Label5);
             this.Controls.Add(this.txtHeight);
             this.Controls.Add(this.Label6);
             this.Controls.Add(this.txtType);
-            this.Name = "frmPainting";
-            this.Text = "Painting";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "FrmPainting";
+            this.Text = "Painting Details";
             this.Controls.SetChildIndex(this.txtType, 0);
             this.Controls.SetChildIndex(this.Label6, 0);
             this.Controls.SetChildIndex(this.txtHeight, 0);
             this.Controls.SetChildIndex(this.Label5, 0);
             this.Controls.SetChildIndex(this.Label4, 0);
             this.Controls.SetChildIndex(this.txtWidth, 0);
+            this.Controls.SetChildIndex(this.pictureBox1, 0);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -112,5 +129,6 @@ namespace Version_1_C
         internal System.Windows.Forms.Label Label5;
         internal System.Windows.Forms.TextBox txtWidth;
         internal System.Windows.Forms.Label Label4;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

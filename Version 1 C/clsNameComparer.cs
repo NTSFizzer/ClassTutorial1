@@ -1,18 +1,16 @@
 using System;
-using System.Collections;
+using System.Collections.Generic;
 
 namespace Version_1_C
 {
-    class ClsNameComparer : IComparer
+    class ClsNameComparer : IComparer<ClsWork>
     {
-        public int Compare(Object x, Object y)
+        public int Compare(ClsWork prNameX, ClsWork prNameY)
         {
-            ClsWork workClassX = (ClsWork)x;
-            ClsWork workClassY = (ClsWork)y;
-            string lcNameX = workClassX.Name();
-            string lcNameY = workClassY.Name();
+            ClsWork lcNameX = (ClsWork)prNameX;
+            ClsWork lcNameY = (ClsWork)prNameY;
 
-            return lcNameX.CompareTo(lcNameY);
+            return prNameX.Name.CompareTo(prNameY.Name);
         }
     }
 }

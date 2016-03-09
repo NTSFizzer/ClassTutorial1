@@ -38,18 +38,21 @@ namespace Version_1_C
          public static ClsWork NewWork()
          {
              char lcReply;
-             InputBox inputBox = new InputBox("Enter P for Painting, S for Sculpture and H for Photograph");
-             //inputBox.ShowDialog();
-             //if (inputBox.getAction() == true)
-             if (inputBox.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+             InputBox inputBox = new InputBox("Enter P for Painting, S for Sculpture and F for Photograph");
+            //inputBox.ShowDialog();
+            //if (inputBox.getAction() == true)
+            inputBox.Text = "Enter the Artists Work Here"; 
+            inputBox.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent; //this centres the input box on the screen
+
+            if (inputBox.ShowDialog() == System.Windows.Forms.DialogResult.OK)
              {
                  lcReply = Convert.ToChar(inputBox.getAnswer());
 
-                 switch (char.ToUpper(lcReply))  //converts the characters entered to Uppercase - p = P, s = S, h = H.
+                 switch (char.ToUpper(lcReply))  //converts the characters entered to Uppercase - p = P, s = S, etc.
                  {
                      case 'P': return new ClsPainting();
                      case 'S': return new ClsSculpture();
-                     case 'H': return new ClsPhotograph();
+                     case 'F': return new ClsPhotograph();
                      default: return null;
                  }
              }
@@ -59,24 +62,6 @@ namespace Version_1_C
                  return null;
              }
          }
-
-
-        //public string GetName()
-        //{
-        //    return _Name;
-        //}
-
-        //public DateTime GetDate()
-        //{
-        //    return Date;
-        //}
-
-        //public decimal GetValue()
-        //{
-        //    return Value;
-        //}
-
-
 
         public override string ToString()
         {

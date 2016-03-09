@@ -70,13 +70,23 @@ namespace Version_1_C
             lcKey = Convert.ToString(lstArtists.SelectedItem);
             if (lcKey != null)
             {
-                lstArtists.ClearSelected();
-                _ArtistList.Remove(lcKey);
+                switch (MessageBox.Show("Do You Really Want to Delete This Artist?", "caption", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Hand))
+                {
+                    case DialogResult.Yes:
+                        MessageBox.Show("Artist Deleted! No Going Back Now....");
+                        lstArtists.ClearSelected();
+                        _ArtistList.Remove(lcKey);
+                        break;
+                    case DialogResult.No:
+                        break;
+                }
+                //lstArtists.ClearSelected();
+                //_ArtistList.Remove(lcKey);
                 UpdateDisplay();
             }
         }
 
-        private void FrmMain_Load(object sender, EventArgs e)
+private void FrmMain_Load(object sender, EventArgs e)
         {
             _ArtistList = ClsArtistList.Retrieve();
             UpdateDisplay();

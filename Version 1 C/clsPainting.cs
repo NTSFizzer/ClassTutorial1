@@ -11,58 +11,33 @@ namespace Version_1_C
         private string _Type;
 
         [NonSerialized()]
-        private static FrmPainting paintDialog;
+        private static FrmPainting _PaintDialog;
 
         public float Width
         {
-            get
-            {
-                return _Width;
-            }
-
-            set
-            {
-                _Width = value;
-            }
+            get { return _Width; }
+            set { _Width = value; }
         }
 
         public float Height
         {
-            get
-            {
-                return _Height;
-            }
-
-            set
-            {
-                _Height = value;
-            }
+            get { return _Height; }
+            set { _Height = value; }
         }
 
         public string Type
         {
-            get
-            {
-                return _Type;
-            }
-
-            set
-            {
-                _Type = value;
-            }
+            get { return _Type;}
+            set { _Type = value; }
         }
 
         public override void EditDetails()
         {
-            //if (paintDialog == null)
-            //{
-            //    paintDialog = new FrmPainting();
-            //}
-            //paintDialog.SetDetails(_Name, theDate, theValue, theWidth, theHeight, theType);
-            //if (paintDialog.ShowDialog() == DialogResult.OK)
-            //{
-            //    paintDialog.GetDetails(ref _Name, ref theDate, ref theValue, ref theWidth, ref theHeight, ref theType);
-            //}
+            if (_PaintDialog == null)
+            {
+                _PaintDialog = new FrmPainting();
+                _PaintDialog.SetDetails(this); //SetDetails is found in frmWork.cs --> a business rule as part of the Work form as its a type of work. The others being photographs, sculptures
+            }
         }
     }
 }

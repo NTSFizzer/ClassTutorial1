@@ -28,6 +28,11 @@ namespace Version_1_C
             txtValue.Text = _Work.Value.ToString();
         }
 
+        internal void SetDetails(string prName, DateTime prDate, decimal prValue)
+        {
+            throw new NotImplementedException();
+        }
+
         protected virtual void PushData()                       // sends the contents of the textboxes back to clsWork
         {
             _Work.Name = txtName.Text;

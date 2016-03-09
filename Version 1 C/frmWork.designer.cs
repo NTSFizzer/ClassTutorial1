@@ -43,14 +43,14 @@ namespace Version_1_C
             this.txtValue.Location = new System.Drawing.Point(97, 81);
             this.txtValue.Name = "txtValue";
             this.txtValue.Size = new System.Drawing.Size(96, 20);
-            this.txtValue.TabIndex = 3;
+            this.txtValue.TabIndex = 5;
             // 
             // Label2
             // 
             this.Label2.Location = new System.Drawing.Point(9, 84);
             this.Label2.Name = "Label2";
             this.Label2.Size = new System.Drawing.Size(80, 16);
-            this.Label2.TabIndex = 46;
+            this.Label2.TabIndex = 2;
             this.Label2.Text = "Value  $";
             // 
             // txtCreation
@@ -58,14 +58,14 @@ namespace Version_1_C
             this.txtCreation.Location = new System.Drawing.Point(97, 49);
             this.txtCreation.Name = "txtCreation";
             this.txtCreation.Size = new System.Drawing.Size(96, 20);
-            this.txtCreation.TabIndex = 2;
+            this.txtCreation.TabIndex = 4;
             // 
             // Label1
             // 
             this.Label1.Location = new System.Drawing.Point(9, 52);
             this.Label1.Name = "Label1";
             this.Label1.Size = new System.Drawing.Size(80, 16);
-            this.Label1.TabIndex = 44;
+            this.Label1.TabIndex = 1;
             this.Label1.Text = "Creation Date";
             // 
             // txtName
@@ -73,14 +73,14 @@ namespace Version_1_C
             this.txtName.Location = new System.Drawing.Point(97, 17);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(96, 20);
-            this.txtName.TabIndex = 1;
+            this.txtName.TabIndex = 3;
             // 
             // Label3
             // 
             this.Label3.Location = new System.Drawing.Point(9, 20);
             this.Label3.Name = "Label3";
             this.Label3.Size = new System.Drawing.Size(80, 16);
-            this.Label3.TabIndex = 40;
+            this.Label3.TabIndex = 0;
             this.Label3.Text = "Name";
             // 
             // btnCancel
@@ -88,7 +88,7 @@ namespace Version_1_C
             this.btnCancel.Location = new System.Drawing.Point(225, 44);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(104, 23);
-            this.btnCancel.TabIndex = 21;
+            this.btnCancel.TabIndex = 7;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
@@ -97,11 +97,11 @@ namespace Version_1_C
             this.btnOK.Location = new System.Drawing.Point(225, 12);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(104, 23);
-            this.btnOK.TabIndex = 20;
+            this.btnOK.TabIndex = 6;
             this.btnOK.Text = "OK";
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
-            // frmWork
+            // FrmWork
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -114,7 +114,8 @@ namespace Version_1_C
             this.Controls.Add(this.Label3);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOK);
-            this.Name = "frmWork";
+            this.Name = "FrmWork";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmWork";
             this.ResumeLayout(false);
             this.PerformLayout();

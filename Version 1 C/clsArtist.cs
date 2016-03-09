@@ -11,7 +11,7 @@ namespace Version_1_C
 
         private decimal _TotalValue;
 
-        private ClsWorksList _WorksList;
+        private ClsWorksList _WorksList = new ClsWorksList();
         private ClsArtistList _ArtistList;
         
         private static FrmArtist ArtistDialog = new FrmArtist();
@@ -19,78 +19,41 @@ namespace Version_1_C
         //declares a Name property of type string
         public string Name
         {
-            get
-            {
-                return _Name;
-            }
-
-            set
-            {
-                _Name = value;
-            }
+            get { return _Name; }
+            set { _Name = value; }
         }
 
         //Declares a Speciality property of type string
         public string Speciality
         {
-            get
-            {
-                return _Speciality;
-            }
-
-            set
-            {
-                _Speciality = value;
-            }
+            get { return _Speciality;}
+            set { _Speciality = value; }
         }
 
         //Declares a Phone property of type string
         public string Phone
         {
-            get
-            {
-                return _Phone;
-            }
-
-            set
-            {
-                _Phone = value;
-            }
+            get { return _Phone; }
+            set { _Phone = value; }
         }
 
         //Declares a TotalValue property of type decimal
         public decimal TotalValue
         {
-            get
-            {
-                return TotalValue;
-            }
+            get { return _TotalValue; }
+            //set { TotalValue = value; }
         }
 
         public ClsWorksList WorksList
         {
-            get
-            {
-                return _WorksList;
-            }
-
-            //set
-            //{
-            //    _WorksList = value;
-            //}
+            get { return _WorksList; }
+            //set { _WorksList = value; }
         }
 
         public ClsArtistList ArtistList
         {
-            get
-            {
-                return _ArtistList;
-            }
-
-            ////set
-            ////{
-            ////    _ArtistList = value;
-            ////}
+            get { return _ArtistList; }
+            ////set { _ArtistList = value; }
         }
 
         public ClsArtist(ClsArtistList prArtistList)
@@ -109,19 +72,6 @@ namespace Version_1_C
                 _TotalValue = _WorksList.GetTotalValue(); //this keeps a copy of the total work's value.
             }
         }
-
-
-        //public void EditDetails() 
-        //{
-        //    ArtistDialog.SetDetails(Name, Speciality, Phone, _WorksList, _ArtistList);
-        //    //simplified as frmArtist now handles the getting and setting of the Artist details. above code no longer needed.
-        //    ArtistDialog.SetDetails(this);
-        //    if (ArtistDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-        //    {
-        //       // ArtistDialog.GetDetails(ref _Name, ref _Speciality, ref _Phone);
-        //        _TotalValue = WorksList.GetTotalValue();
-        //    }
-        //}
 
         public bool IsDuplicate(string prArtistName)
         {

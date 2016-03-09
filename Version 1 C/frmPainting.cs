@@ -16,31 +16,24 @@ namespace Version_1_C
             InitializeComponent();
         }
 
-        //public virtual void SetDetails(string prName, DateTime prDate, decimal prValue,
-        //                               float prWidth, float prHeight, string prType)
-        //{
-        //    base.SetDetails(prName, prDate, prValue);
-        //    txtWidth.Text = Convert.ToString(prWidth);
-        //    txtHeight.Text = Convert.ToString(prHeight);
-        //    txtType.Text = prType;
-        //}
-
-        //public virtual void GetDetails(ref string prName, ref DateTime prDate, ref decimal prValue,
-        //                               ref float prWidth, ref float prHeight, ref string prType)
-        //{
-        //    base.GetDetails(ref prName, ref prDate, ref prValue);
-        //    prWidth = Convert.ToSingle(txtWidth.Text);
-        //    prHeight = Convert.ToSingle(txtHeight.Text);
-        //    prType = txtType.Text;
-        //}
-
         protected override void UpdateForm()
+            //this handles the painting specific data
         {
             base.UpdateForm();
             ClsPainting lcWork = (ClsPainting) _Work;
             txtWidth.Text = lcWork.Width.ToString();
             txtHeight.Text = lcWork.Height.ToString();
             txtType.Text = lcWork.Type;
+        }
+
+        protected override void PushData()
+            //this handles the Painting specific data
+        {
+            base.PushData();
+            ClsPainting lcWork = (ClsPainting)_Work;
+            lcWork.Width = Single.Parse(txtWidth.Text);
+            lcWork.Height = Single.Parse(txtHeight.Text);
+            lcWork.Type = txtType.Text;
         }
     }
 }

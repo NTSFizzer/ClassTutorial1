@@ -28,10 +28,13 @@ namespace Version_1_C
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSculpture));
             this.txtMaterial = new System.Windows.Forms.TextBox();
             this.Label5 = new System.Windows.Forms.Label();
             this.txtWeight = new System.Windows.Forms.TextBox();
             this.Label4 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtMaterial
@@ -64,20 +67,34 @@ namespace Version_1_C
             this.Label4.TabIndex = 54;
             this.Label4.Text = "Weight";
             // 
-            // frmSculpture
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(215, 77);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(125, 92);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 57;
+            this.pictureBox1.TabStop = false;
+            // 
+            // FrmSculpture
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(352, 181);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txtWeight);
             this.Controls.Add(this.Label4);
             this.Controls.Add(this.Label5);
             this.Controls.Add(this.txtMaterial);
-            this.Name = "frmSculpture";
-            this.Text = "Sculpture";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "FrmSculpture";
+            this.Text = "Sculpture Details";
             this.Controls.SetChildIndex(this.txtMaterial, 0);
             this.Controls.SetChildIndex(this.Label5, 0);
             this.Controls.SetChildIndex(this.Label4, 0);
             this.Controls.SetChildIndex(this.txtWeight, 0);
+            this.Controls.SetChildIndex(this.pictureBox1, 0);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -89,5 +106,6 @@ namespace Version_1_C
         internal System.Windows.Forms.Label Label5;
         internal System.Windows.Forms.TextBox txtWeight;
         internal System.Windows.Forms.Label Label4;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

@@ -1,19 +1,22 @@
 using System;
-using System.Collections;
+using System.Collections.Generic;
+using System.IO;
 using System.Windows.Forms;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Version_1_C
 {
     [Serializable()]
-    public class ClsArtistList : SortedList
+    public class ClsArtistList : SortedList<string, ClsArtist> //this now inherits from clsArtist as a sorted list
     {
-        private const string _FileName = "GallerySaveFile.xml"; //moved from frmMain
-        private ClsArtistList _ArtistList;
+        private const string _FileName = "GallerySaveFile1.xml"; //moved from frmMain
+
+        //private ClsArtistList _ArtistList;
 
         public void EditArtist(string prKey)
         {
             ClsArtist lcArtist;
-            lcArtist = (ClsArtist)this[prKey];
+            lcArtist = (ClsArtist)this[prKey];   //no longer required
             if (lcArtist != null)
                 lcArtist.EditDetails();
             else
@@ -52,9 +55,15 @@ namespace Version_1_C
         {
             try
             {
-                System.IO.FileStream lcFileStream = new System.IO.FileStream(_FileName, System.IO.FileMode.Create);
-                System.Runtime.Serialization.Formatters.Soap.SoapFormatter lcFormatter =
-                    new System.Runtime.Serialization.Formatters.Soap.SoapFormatter();
+                //System.IO.FileStream lcFileStream = new System.IO.FileStream(_FileName, System.IO.FileMode.Create);
+
+                //System.Runtime.Serialization.Formatters.Binary.BinaryFormatter lcFormatter =
+                //    new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
+
+                FileStream lcFileStream = new FileStream(_FileName, System.IO.FileMode.Create);
+
+                BinaryFormatter lcFormatter =
+                    new BinaryFormatter();      //note the simplification of this method - is accessed via the Using System.Runtime.Serializaition... at the top
 
                 lcFormatter.Serialize(lcFileStream, this);
                 lcFileStream.Close();
@@ -73,9 +82,9 @@ namespace Version_1_C
 
             try
             {
-                System.IO.FileStream lcFileStream = new System.IO.FileStream(_FileName, System.IO.FileMode.Open);
-                System.Runtime.Serialization.Formatters.Soap.SoapFormatter lcFormatter =
-                    new System.Runtime.Serialization.Formatters.Soap.SoapFormatter();
+                FileStream lcFileStream = new FileStream(_FileName, FileMode.Open);
+                BinaryFormatter lcFormatter =
+                    new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();  //not all code is required. left for learning exercise
 
                 lcArtistList = (ClsArtistList)lcFormatter.Deserialize(lcFileStream);
 

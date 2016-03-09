@@ -20,21 +20,21 @@ namespace Version_1_C
         {
             base.UpdateForm();
             ClsPhotograph lcWork = (ClsPhotograph)_Work;
-            txtName.Text = lcWork.Name.ToString();
-           
-
+        //  txtName.Text = lcWork.Name.ToString();
+            txtWidth.Text = lcWork.Width.ToString();
+            txtHeight.Text = lcWork.Height.ToString();
+            txtType.Text = lcWork.Type;
         }
 
-
-        //protected override void UpdateForm()
-        //{
-        //    base.UpdateForm();
-        //    ClsPainting lcWork = (ClsPainting)_Work;
-        //    txtWidth.Text = lcWork.Width.ToString();
-        //    txtHeight.Text = lcWork.Height.ToString();
-        //    txtType.Text = lcWork.Type;
-        //}
-
+        protected override void PushData()
+        //this handles the Photograph specific data
+        {
+            base.PushData();
+            ClsPhotograph lcWork = (ClsPhotograph)_Work;
+            lcWork.Width = Single.Parse(txtWidth.Text);
+            lcWork.Height = Single.Parse(txtHeight.Text);
+            lcWork.Type = txtType.Text;
+        }
     }
 }
 

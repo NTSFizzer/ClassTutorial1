@@ -1,18 +1,15 @@
-using System;
-using System.Collections;
+using System.Collections.Generic;
 
 namespace Version_1_C
 {
-    class ClsDateComparer : IComparer
+    class ClsDateComparer : IComparer<ClsWork>
     {
-        public int Compare(Object x, Object y)
+        public int Compare(ClsWork prDateX, ClsWork prDateY)
         {
-            ClsWork lcWorkX = (ClsWork)x;
-            ClsWork lcWorkY = (ClsWork)y;
-            DateTime lcDateX = lcWorkX.Date();
-            DateTime lcDateY = lcWorkY.Date();
+            ClsWork lcDateX = (ClsWork)prDateX;
+            ClsWork lcDateY = (ClsWork)prDateY;
 
-            return lcDateX.CompareTo(lcDateY);
+            return prDateX.Date.CompareTo(prDateY.Date);
         }
     }
 }

@@ -1,28 +1,23 @@
 using System;
-using System.Collections;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace Version_1_C
 {
     [Serializable()] 
-    public class ClsWorksList : ArrayList
+    public class ClsWorksList : List<ClsWork>
     {
         private static ClsNameComparer _NameComparer = new ClsNameComparer();
         private static ClsDateComparer _DateComparer = new ClsDateComparer();
+
+        private static ClsPriceComparer _PriceComparer = new ClsPriceComparer();
 
         private byte _SortOrder; // field moved from clsArtist.cs
 
         public byte SortOrder
         {
-            get
-            {
-                return _SortOrder;
-            }
-
-            set
-            {
-                _SortOrder = value;
-            }
+            get { return _SortOrder; }
+            set { _SortOrder = value; }
         }
 
         public void AddWork()
@@ -49,7 +44,7 @@ namespace Version_1_C
         {
             if (prIndex >= 0 && prIndex < this.Count)
             {
-                ClsWork lcWork = (ClsWork)this[prIndex];
+                ClsWork lcWork = (ClsWork)this[(prIndex)];              
                 lcWork.EditDetails();
             }
             else
@@ -63,7 +58,7 @@ namespace Version_1_C
             decimal lcTotal = 0;
             foreach (ClsWork lcWork in this)
             {
-                lcTotal += lcWork.Value();
+                lcTotal += lcWork.Value;
             }
             return lcTotal;
         }
@@ -76,6 +71,11 @@ namespace Version_1_C
         public void SortByDate()
         {
             Sort(_DateComparer);
+        }
+
+        public void SortByPrice()
+        {
+            Sort(_PriceComparer);
         }
     }
 }

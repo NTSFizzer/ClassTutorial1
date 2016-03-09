@@ -16,7 +16,7 @@ namespace Version_1_C
             InitializeComponent();
         }
 
-        private ClsWorksList _WorksList;    // link from this form to ClsWorksList via _WorksList
+        //private ClsWorksList _WorksList;    // link from this form to ClsWorksList via _WorksList
         // private ClsArtistList _ArtistList;  // link from the Form FrmArtist to ClsArtistList
         //removed to reduce Inappropriate Intimacy. Refactored via Hiding Delegate (aka Hide Delegate)
 
@@ -42,17 +42,23 @@ namespace Version_1_C
             txtName.Enabled = txtName.Text == "";
             if (_SortOrder == 0)
             {
-                _WorksList.SortByName();
+                _Artist.WorksList.SortByName();
                 rbByName.Checked = true;
             }
-            else
+            else if (_SortOrder == 1)
             {
-                _WorksList.SortByDate();
+                _Artist.WorksList.SortByDate();
                 rbByDate.Checked = true;
             }
 
+            else if (_SortOrder ==2)
+            {
+                _Artist.WorksList.SortByPrice();
+                rbPrice.Checked = true;
+            }
+
             lstWorks.DataSource = null;
-            lstWorks.DataSource = _WorksList;
+            lstWorks.DataSource = _Artist.WorksList;
            // lblTotal.Text = Convert.ToString(_WorksList.GetTotalValue());
         }
 
@@ -78,13 +84,13 @@ namespace Version_1_C
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            _WorksList.DeleteWork(lstWorks.SelectedIndex);
+            _Artist.WorksList.DeleteWork(lstWorks.SelectedIndex);
             UpdateDisplay();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            _WorksList.AddWork();
+            _Artist.WorksList.AddWork();
             UpdateDisplay();
         }
 
@@ -116,7 +122,7 @@ namespace Version_1_C
             int lcIndex = lstWorks.SelectedIndex;
             if (lcIndex >= 0)
             {
-                _WorksList.EditWork(lcIndex);
+                _Artist.WorksList.EditWork(lcIndex);
                 UpdateDisplay();
             }
         }
@@ -143,6 +149,5 @@ namespace Version_1_C
             _Artist.Speciality = txtSpeciality.Text;
 
         }
-
     }
 }
