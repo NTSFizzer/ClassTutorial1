@@ -33,11 +33,11 @@ namespace Version_1_C
 
         public override void EditDetails()
         {
-            if (_PaintDialog == null)
-            {
-                _PaintDialog = new FrmPainting();
-                _PaintDialog.SetDetails(this); //SetDetails is found in frmWork.cs --> a business rule as part of the Work form as its a type of work. The others being photographs, sculptures
-            }
+            //if (_PaintDialog == null)
+            //{
+            //    _PaintDialog = new FrmPainting();
+            //    _PaintDialog.SetDetails(this); //SetDetails is found in frmWork.cs --> a business rule as part of the Work form as its a type of work. The others being photographs, sculptures
+            //}
         }
     }
 }

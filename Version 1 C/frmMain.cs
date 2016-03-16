@@ -86,10 +86,15 @@ namespace Version_1_C
             }
         }
 
-private void FrmMain_Load(object sender, EventArgs e)
+        private void FrmMain_Load(object sender, EventArgs e)
         {
             _ArtistList = ClsArtistList.Retrieve();
             UpdateDisplay();
+        }
+
+        private void lstArtists_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

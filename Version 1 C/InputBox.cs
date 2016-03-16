@@ -30,7 +30,7 @@ namespace Version_1_C
             }
             else
             {
-                lblError.Text = "Please enter one character into the text box.";
+                lblError.Text = "Please enter only one character into the text box.";
             }
         }
 
@@ -43,6 +43,11 @@ namespace Version_1_C
         public string getAnswer()
         {
             return answer;
+        }
+
+        private void InputBox_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

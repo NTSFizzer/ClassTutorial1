@@ -20,22 +20,12 @@ namespace Version_1_C
         // private ClsArtistList _ArtistList;  // link from the Form FrmArtist to ClsArtistList
         //removed to reduce Inappropriate Intimacy. Refactored via Hiding Delegate (aka Hide Delegate)
 
-        private ClsArtist _Artist; //private member variable from ClsArtist --> page 3 of notes 8.c
+        private ClsArtist _Artist; //private member variable from ClsArtist --> page 3 of notes 8.c -- this links to ClsArtist
+        
+        private string[] _ArtistWorksType = {"Painting", "Sculpture", "Photograph"};
 
         //private ClsWorksList _SortOrder;
-        private byte _SortOrder; // 0 = Name, 1 = Date
-
-
-        //class ClsNameComparer : IComparer<ClsWorksList>
-        //{
-        //    public int Compare(ClsWorksList prArtistX, ClsWorksList prArtistY)
-        //    {
-        //        return prArtistX.SortOrder.CompareTo(prArtistY.SortOrder.CompareTo.Name);
-        //    }
-        //}
-
-        //private IComparer<ClsWorksList>[] _Comparer = { new ClsNameComparer(), new ClsDateComparer() };
-        //private readonly string[] _SortStrings = { "Name", "Date" };
+        private byte _SortOrder; // 0 = Name, 1 = Date, 2 = Price;
 
         private void UpdateDisplay()
         {
@@ -45,25 +35,25 @@ namespace Version_1_C
                 _Artist.WorksList.SortByName();
                 rbByName.Checked = true;
             }
-            else if (_SortOrder == 1)
+            else
             {
                 _Artist.WorksList.SortByDate();
                 rbByDate.Checked = true;
             }
 
-            else if (_SortOrder ==2)
-            {
-                _Artist.WorksList.SortByPrice();
-                rbPrice.Checked = true;
-            }
+            //else if (_SortOrder ==2)
+            //{
+            //    _Artist.WorksList.SortByPrice();
+            //    rbPrice.Checked = true;
+            //}
 
             lstWorks.DataSource = null;
             lstWorks.DataSource = _Artist.WorksList;
-           // lblTotal.Text = Convert.ToString(_WorksList.GetTotalValue());
         }
 
 
         public void SetDetails(ClsArtist prArtist)
+        //this is now the effect from removing all of the previous parameters.
         {
             //parameters removed, and object preserved whole
             //direction changed form Unidirectional to Bidirectional Association
@@ -72,14 +62,6 @@ namespace Version_1_C
             UpdateForm();
             UpdateDisplay();
             ShowDialog();  
-                   
-            //txtName.Text = prName;
-            //txtSpeciality.Text = prSpeciality;
-            //txtPhone.Text = prPhone;
-            //_ArtistList = prArtistList;
-            //_WorksList = prWorksList;
-            //_SortOrder = _WorksList.SortOrder;
-            //UpdateDisplay();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -90,6 +72,7 @@ namespace Version_1_C
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            ClsWork lcArtist = ClsWork.NewWork();
             _Artist.WorksList.AddWork();
             UpdateDisplay();
         }
@@ -98,7 +81,7 @@ namespace Version_1_C
         {
             if (isValid())
             {
-                pushData();                     //added just prior to closing the form to push the data back to the form
+                pushData();   //added just prior to closing the form to push the data back to the form
                 DialogResult = DialogResult.OK;
             }
         }
@@ -139,6 +122,7 @@ namespace Version_1_C
             txtName.Text = _Artist.Name;
             txtPhone.Text = _Artist.Phone;
             txtSpeciality.Text = _Artist.Speciality;
+            //cboSpeciality.SelectedItem = _Artist.Speciality;
         }
 
         //responsible for pushing the details back to the class when the user closes the form
@@ -147,7 +131,45 @@ namespace Version_1_C
             _Artist.Name = txtName.Text;
             _Artist.Phone = txtPhone.Text;
             _Artist.Speciality = txtSpeciality.Text;
+            //_Artist.Speciality = Convert.ToString(cboSpeciality.SelectedItem);
+        }
 
+        private void txtPhone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            /*This will validate all type of numbers*/
+            if ((!char.IsDigit(e.KeyChar)) && !char.IsControl(e.KeyChar) && (e.KeyChar != '.')) // && (e.KeyChar != '-') 
+            {
+                e.Handled = true;
+            }
+            /* This will allow only allow one decimal point*/
+            if (e.KeyChar == '.' && (sender as TextBox).Text.IndexOf('.') > -1)
+            {
+                e.Handled = true;
+            }
+            //limits the number of decimal places to 2
+            if (char.IsNumber(e.KeyChar) || ((e.KeyChar == '.') && (txtPhone.Text.IndexOf('.') == -1)))
+            {
+                if (txtPhone.Text.IndexOf('.') > 0)
+                {
+                    if (txtPhone.Text.IndexOf('.') < txtPhone.Text.Length - 2)
+                        e.Handled = true;
+                }
+            }
+            else e.Handled = e.KeyChar != (char)Keys.Back;
+        }
+
+        private void txtPhone_TextChanged(object sender, EventArgs e)
+        {
+            //if (txtAnswer.Text.Length > 0 && txtAnswer.Text.Length < 2)
+            //{
+            //    answer = txtAnswer.Text;
+            //    DialogResult = DialogResult.OK;
+            //    this.Close();
+            //}
+            //else
+            //{
+            //    lblError.Text = "Please enter only one character into the text box.";
+            //}
         }
     }
 }

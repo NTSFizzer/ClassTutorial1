@@ -32,7 +32,6 @@ namespace Version_1_C
             this.lblTotal = new System.Windows.Forms.Label();
             this.Label5 = new System.Windows.Forms.Label();
             this.optSort = new System.Windows.Forms.GroupBox();
-            this.rbPrice = new System.Windows.Forms.RadioButton();
             this.rbByDate = new System.Windows.Forms.RadioButton();
             this.rbByName = new System.Windows.Forms.RadioButton();
             this.btnClose = new System.Windows.Forms.Button();
@@ -51,7 +50,7 @@ namespace Version_1_C
             // 
             // lblTotal
             // 
-            this.lblTotal.Location = new System.Drawing.Point(232, 376);
+            this.lblTotal.Location = new System.Drawing.Point(232, 404);
             this.lblTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(108, 26);
@@ -59,7 +58,7 @@ namespace Version_1_C
             // 
             // Label5
             // 
-            this.Label5.Location = new System.Drawing.Point(112, 376);
+            this.Label5.Location = new System.Drawing.Point(112, 404);
             this.Label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label5.Name = "Label5";
             this.Label5.Size = new System.Drawing.Size(96, 26);
@@ -68,26 +67,16 @@ namespace Version_1_C
             // 
             // optSort
             // 
-            this.optSort.Controls.Add(this.rbPrice);
             this.optSort.Controls.Add(this.rbByDate);
             this.optSort.Controls.Add(this.rbByName);
-            this.optSort.Location = new System.Drawing.Point(76, 134);
+            this.optSort.Location = new System.Drawing.Point(145, 161);
             this.optSort.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.optSort.Name = "optSort";
             this.optSort.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.optSort.Size = new System.Drawing.Size(290, 78);
+            this.optSort.Size = new System.Drawing.Size(195, 78);
             this.optSort.TabIndex = 6;
             this.optSort.TabStop = false;
             this.optSort.Text = "Sort By";
-            // 
-            // rbPrice
-            // 
-            this.rbPrice.Location = new System.Drawing.Point(204, 26);
-            this.rbPrice.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.rbPrice.Name = "rbPrice";
-            this.rbPrice.Size = new System.Drawing.Size(72, 39);
-            this.rbPrice.TabIndex = 2;
-            this.rbPrice.Text = "Amt";
             // 
             // rbByDate
             // 
@@ -110,37 +99,37 @@ namespace Version_1_C
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(256, 415);
+            this.btnClose.Location = new System.Drawing.Point(256, 443);
             this.btnClose.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(96, 52);
             this.btnClose.TabIndex = 13;
-            this.btnClose.Text = "Close";
+            this.btnClose.Text = "&Close";
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(136, 415);
+            this.btnDelete.Location = new System.Drawing.Point(136, 443);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(96, 52);
             this.btnDelete.TabIndex = 12;
-            this.btnDelete.Text = "Delete";
+            this.btnDelete.Text = "&Delete";
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(16, 415);
+            this.btnAdd.Location = new System.Drawing.Point(16, 443);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(96, 52);
             this.btnAdd.TabIndex = 11;
-            this.btnAdd.Text = "Add";
+            this.btnAdd.Text = "&Add";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // Label4
             // 
-            this.Label4.Location = new System.Drawing.Point(16, 195);
+            this.Label4.Location = new System.Drawing.Point(16, 223);
             this.Label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label4.Name = "Label4";
             this.Label4.Size = new System.Drawing.Size(120, 26);
@@ -150,7 +139,7 @@ namespace Version_1_C
             // lstWorks
             // 
             this.lstWorks.ItemHeight = 21;
-            this.lstWorks.Location = new System.Drawing.Point(16, 221);
+            this.lstWorks.Location = new System.Drawing.Point(16, 249);
             this.lstWorks.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lstWorks.Name = "lstWorks";
             this.lstWorks.Size = new System.Drawing.Size(334, 130);
@@ -164,6 +153,8 @@ namespace Version_1_C
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(238, 29);
             this.txtPhone.TabIndex = 5;
+            this.txtPhone.TextChanged += new System.EventHandler(this.txtPhone_TextChanged);
+            this.txtPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPhone_KeyPress);
             // 
             // Label3
             // 
@@ -212,7 +203,7 @@ namespace Version_1_C
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(384, 483);
+            this.ClientSize = new System.Drawing.Size(384, 505);
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.Label5);
             this.Controls.Add(this.optSort);
@@ -258,6 +249,5 @@ namespace Version_1_C
         internal System.Windows.Forms.Label Label2;
         internal System.Windows.Forms.TextBox txtName;
         internal System.Windows.Forms.Label Label1;
-        internal System.Windows.Forms.RadioButton rbPrice;
     }
 }

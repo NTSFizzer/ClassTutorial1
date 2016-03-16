@@ -7,7 +7,7 @@ namespace Version_1_C
     {
         private string _Name;
         private string _Speciality;
-        private string _Phone;
+        private string _Phone;        
 
         private decimal _TotalValue;
 
@@ -59,7 +59,7 @@ namespace Version_1_C
         public ClsArtist(ClsArtistList prArtistList)
         {
          //   WorksList = new ClsWorksList();
-        //    ArtistList = prArtistList;
+         //   ArtistList = prArtistList;
             EditDetails();
         }
 
@@ -67,13 +67,16 @@ namespace Version_1_C
         public void EditDetails()
         {
             ArtistDialog.SetDetails(this); //this passes a reference to itself now
-            if (ArtistDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                _TotalValue = _WorksList.GetTotalValue(); //this keeps a copy of the total work's value.
-            }
+            _TotalValue = _WorksList.GetTotalValue(); //this keeps a copy of the total work's value.
+
+            //if (ArtistDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            //{
+            //    _TotalValue = _WorksList.GetTotalValue(); //this keeps a copy of the total work's value.
+            //}
         }
 
         public bool IsDuplicate(string prArtistName)
+            //this is created to reduce Inappropriate Intimacy and "Hide Delegate"
         {
             return ArtistList.ContainsKey(prArtistName);
         }

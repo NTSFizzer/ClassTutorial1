@@ -16,16 +16,16 @@ namespace Version_1_C
             set { _Name = value; }
         }
 
-        public decimal Value
-        {
-            get { return _Value; }
-            set { this._Value = value; }
-        }
-
         public DateTime Date
         {
             get { return _Date; }
             set { _Date = value; }
+        }
+
+        public decimal Value
+        {
+            get { return _Value; }
+            set { this._Value = value; }
         }
 
         public ClsWork()
@@ -35,7 +35,7 @@ namespace Version_1_C
 
         public abstract void EditDetails();
 
-         public static ClsWork NewWork()
+         public static ClsWork NewWork() //this returns a thing of its own kind
          {
              char lcReply;
              InputBox inputBox = new InputBox("Enter P for Painting, S for Sculpture and F for Photograph");
@@ -53,7 +53,7 @@ namespace Version_1_C
                      case 'P': return new ClsPainting();
                      case 'S': return new ClsSculpture();
                      case 'F': return new ClsPhotograph();
-                     default: return null;
+                     default: throw new Exception("You chose the wrong option. Please Try Again."); ;
                  }
              }
              else
@@ -65,7 +65,7 @@ namespace Version_1_C
 
         public override string ToString()
         {
-            return Name + "\t" + Date.ToShortDateString() + " ooh yeah! 2016!";  
+            return Name + "\t" + Date.ToShortDateString() + "\t" + Value.ToString();  
         }
     }
 }

@@ -15,8 +15,8 @@ namespace Version_1_C
 
         public void EditArtist(string prKey)
         {
-            ClsArtist lcArtist;
-            lcArtist = (ClsArtist)this[prKey];   //no longer required
+            ClsArtist lcArtist = new ClsArtist(this);
+           // lcArtist = (ClsArtist)this[prKey];   //no longer required
             if (lcArtist != null)
                 lcArtist.EditDetails();
             else

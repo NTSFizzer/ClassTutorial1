@@ -10,7 +10,7 @@ namespace Version_1_C
         private static ClsNameComparer _NameComparer = new ClsNameComparer();
         private static ClsDateComparer _DateComparer = new ClsDateComparer();
 
-        private static ClsPriceComparer _PriceComparer = new ClsPriceComparer();
+      //private static ClsPriceComparer _PriceComparer = new ClsPriceComparer();
 
         private byte _SortOrder; // field moved from clsArtist.cs
 
@@ -73,9 +73,9 @@ namespace Version_1_C
             Sort(_DateComparer);
         }
 
-        public void SortByPrice()
-        {
-            Sort(_PriceComparer);
-        }
+        //public void SortByPrice()
+        //{
+        //    Sort(_PriceComparer);
+        //}
     }
 }

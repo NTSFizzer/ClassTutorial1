@@ -105,6 +105,7 @@ namespace Version_1_C
             this.lstArtists.Name = "lstArtists";
             this.lstArtists.Size = new System.Drawing.Size(202, 277);
             this.lstArtists.TabIndex = 1;
+            this.lstArtists.SelectedIndexChanged += new System.EventHandler(this.lstArtists_SelectedIndexChanged);
             this.lstArtists.DoubleClick += new System.EventHandler(this.lstArtists_DoubleClick);
             // 
             // pictureBox1
