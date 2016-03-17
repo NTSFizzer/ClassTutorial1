@@ -53,7 +53,8 @@ namespace Version_1_C
                      case 'P': return new ClsPainting();
                      case 'S': return new ClsSculpture();
                      case 'F': return new ClsPhotograph();
-                     default: throw new Exception("You chose the wrong option. Please Try Again."); ;
+                     default: return null;
+                    //default: throw new Exception("You chose the wrong option. Please Try Again."); ;
                  }
              }
              else
