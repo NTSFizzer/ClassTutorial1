@@ -20,7 +20,9 @@ namespace Version_1_C
         {
             base.UpdateForm();
             ClsPhotograph lcWork = (ClsPhotograph)_Work;
-        //  txtName.Text = lcWork.Name.ToString();
+            //txtName.Text = lcWork.Name.ToString();
+            //txtCreation.Text = lcWork.Date.ToShortDateString();
+            //txtValue.Text = lcWork.Value.ToString();
             txtWidth.Text = lcWork.Width.ToString();
             txtHeight.Text = lcWork.Height.ToString();
             txtType.Text = lcWork.Type;
@@ -31,6 +33,9 @@ namespace Version_1_C
         {
             base.PushData();
             ClsPhotograph lcWork = (ClsPhotograph)_Work;
+            //lcWork.Name = txtName.Text;
+            //lcWork.Date = DateTime.Parse(txtCreation.Text);
+            //lcWork.Value = Decimal.Parse(txtValue.Text);
             lcWork.Width = Single.Parse(txtWidth.Text);
             lcWork.Height = Single.Parse(txtHeight.Text);
             lcWork.Type = txtType.Text;

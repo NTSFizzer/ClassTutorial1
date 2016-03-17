@@ -5,12 +5,12 @@ namespace Version_1_C
 {
     class ClsNameComparer : IComparer<ClsWork>
     {
-        public int Compare(ClsWork prNameX, ClsWork prNameY)
+        public int Compare(ClsWork x, ClsWork y)
         {
-            ClsWork lcNameX = (ClsWork)prNameX;
-            ClsWork lcNameY = (ClsWork)prNameY;
+            ClsWork lcNameX = (ClsWork)x;
+            ClsWork lcNameY = (ClsWork)y;
 
-            return prNameX.Name.CompareTo(prNameY.Name);
+            return x.Name.CompareTo(y.Name);
         }
     }
 }
