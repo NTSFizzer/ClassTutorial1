@@ -33,11 +33,22 @@ namespace Version_1_C
 
         public override void EditDetails()
         {
+            /* Matthias: Check your original code here.  You were calling SetDetails(), and thereby starting the dialog,
+                only if the dialog is null, which is the exception.
+
             if (_PaintDialog == null)
             {
                 _PaintDialog = new FrmPainting();
                 _PaintDialog.SetDetails(this); //SetDetails is found in frmWork.cs --> a business rule as part of the Work form as its a type of work. The others being photographs, sculptures
             }
+              Matthias: like this (below).  Fix this for photo and sculpture also.
+            */
+
+            if (_PaintDialog == null)
+                _PaintDialog = new FrmPainting();
+
+            _PaintDialog.SetDetails(this); //SetDetails is found in frmWork.cs --> a business rule as part of the Work form as its a type of work. The others being photographs, sculptures
+         
         }
     }
 }

@@ -72,7 +72,11 @@ namespace Version_1_C
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            ClsWork lcArtist = ClsWork.NewWork();
+            // Matthias: make the following line clearer.  Why do you call a ClsWork variable "lcArtist"?
+            // ClsWork lcArtist = ClsWork.NewWork();
+
+            ClsWork lcWork = ClsWork.NewWork();
+
             _Artist.WorksList.AddWork();
             UpdateDisplay();
         }

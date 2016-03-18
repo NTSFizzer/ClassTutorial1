@@ -15,8 +15,15 @@ namespace Version_1_C
 
         public void EditArtist(string prKey)
         {
-            ClsArtist lcArtist = new ClsArtist(this);
-           // lcArtist = (ClsArtist)this[prKey];   //no longer required
+            // Matthias: what is no longer needed was the "typecasting" in the original line
+            //  because we are using a "generic" dictionary, which knows what types of obejects it contains.
+            // i.e.:
+            ClsArtist lcArtist = this[prKey];
+
+            // Matthias: you were creating a new artist every time it comes to editing (an existing one)
+            // ClsArtist lcArtist = new ClsArtist(this);
+            // lcArtist = (ClsArtist)this[prKey];   //no longer required
+            
             if (lcArtist != null)
                 lcArtist.EditDetails();
             else
