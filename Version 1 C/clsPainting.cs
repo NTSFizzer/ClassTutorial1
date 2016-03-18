@@ -34,7 +34,7 @@ namespace Version_1_C
         public override void EditDetails()
         {
             /* Matthias: Check your original code here.  You were calling SetDetails(), and thereby starting the dialog,
-                only if the dialog is null, which is the exception.
+                only if the dialog is null, which is the exception.  See #10l (Task List Stage1)
 
             if (_PaintDialog == null)
             {

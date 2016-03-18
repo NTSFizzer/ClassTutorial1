@@ -16,6 +16,16 @@ namespace Version_1_C
             InitializeComponent();
         }
 
+        /* Matthias:  You had a hard-to-track bug in this form, John.  You've attached the btnCancel's (and btnOK's) "Enter"
+            events to the _Click routines.  I have no idea what the "Enter" event actually means in terms of buttons, 
+            but the result was that the form triggered this event upon loading, which caused the form to close immediately 
+            (when it executed the cancel code).
+
+            If you want to make the OK button to respond to the Enter key, set the form's "AcceptButton" property to btnOK
+            (and the CancelButton property to btnCancel, if you want the Escape key to trigger the cancel button, which is
+            conventional Windows behaviour.
+        */
+
         protected ClsWork _Work; //protected variable of type ClsWork == _Work
 
 
