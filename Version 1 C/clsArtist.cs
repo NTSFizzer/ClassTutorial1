@@ -59,7 +59,9 @@ namespace Version_1_C
         public ClsArtist(ClsArtistList prArtistList)
         {
          //   WorksList = new ClsWorksList();
-         //   ArtistList = prArtistList;
+         
+            // Matthias:  the following line is needed!
+            _ArtistList = prArtistList;
             EditDetails();
         }
 

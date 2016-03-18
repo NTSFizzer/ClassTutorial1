@@ -98,7 +98,6 @@ namespace Version_1_C
             this.btnCancel.TabIndex = 1;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            this.btnCancel.Enter += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnOK
             // 
@@ -109,7 +108,6 @@ namespace Version_1_C
             this.btnOK.TabIndex = 7;
             this.btnOK.Text = "OK";
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
-            this.btnOK.Enter += new System.EventHandler(this.btnOK_Click);
             // 
             // FrmWork
             // 
@@ -142,7 +140,7 @@ namespace Version_1_C
         internal System.Windows.Forms.Label Label1;
         internal System.Windows.Forms.TextBox txtName;
         internal System.Windows.Forms.Label Label3;
-        internal System.Windows.Forms.Button btnCancel;
         internal System.Windows.Forms.Button btnOK;
+        internal System.Windows.Forms.Button btnCancel;
     }
 }

@@ -83,7 +83,9 @@ namespace Version_1_C
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            ClsWork lcArtist = ClsWork.NewWork();
+            //  Matthias: this one is screwing things up.  You're creating a new artwork here,
+            // then calling AddWork() which creates another one.
+            // ClsWork lcWork = ClsWork.NewWork();
             _Artist.WorksList.AddWork();
             UpdateDisplay();
         }
