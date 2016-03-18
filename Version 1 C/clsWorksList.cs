@@ -77,5 +77,29 @@ namespace Version_1_C
         //{
         //    Sort(_PriceComparer);
         //}
+
+        //private void UpdateDisplay(ClsWorksList prSortOrder)
+        //{
+        //    txtName.Enabled = txtName.Text == "";
+        //    if (_SortOrder == 0)
+        //    {
+        //        _Artist.WorksList.SortByName();
+        //        rbByName.Checked = true;
+        //    }
+        //    else
+        //    {
+        //        _Artist.WorksList.SortByDate();
+        //        rbByDate.Checked = true;
+        //    }
+
+        //    //else if (_SortOrder ==2)
+        //    //{
+        //    //    _Artist.WorksList.SortByPrice();
+        //    //    rbPrice.Checked = true;
+        //    //}
+
+        //    lstWorks.DataSource = null;
+        //    lstWorks.DataSource = _Artist.WorksList;
+        //}
     }
 }

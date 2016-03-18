@@ -66,7 +66,8 @@ namespace Version_1_C
         //most of the editing of the form is done by the form.
         public void EditDetails()
         {
-            ArtistDialog.SetDetails(this); //this passes a reference to itself now
+            ArtistDialog. 
+                SetDetails(this); //this passes a reference to itself now
             _TotalValue = _WorksList.GetTotalValue(); //this keeps a copy of the total work's value.
 
             //if (ArtistDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)

@@ -21,12 +21,17 @@ namespace Version_1_C
         //removed to reduce Inappropriate Intimacy. Refactored via Hiding Delegate (aka Hide Delegate)
 
         private ClsArtist _Artist; //private member variable from ClsArtist --> page 3 of notes 8.c -- this links to ClsArtist
+
+        //private ClsWorksList _SortOrders;
         
         private string[] _ArtistWorksType = {"Painting", "Sculpture", "Photograph"};
 
-        //private ClsWorksList _SortOrder;
         private byte _SortOrder; // 0 = Name, 1 = Date, 2 = Price;
 
+        private ClsWorksList _Workslist;
+        //private member variable to ClsWorksList - to enable sorting via the class instead of the form
+
+        //   MOVE TO WORKS LIST?? 
         private void UpdateDisplay()
         {
             txtName.Enabled = txtName.Text == "";
@@ -59,9 +64,15 @@ namespace Version_1_C
             //direction changed form Unidirectional to Bidirectional Association
 
             _Artist = prArtist;
+          //  _SortOrder = _WorksList.SortOrder;
             UpdateForm();
             UpdateDisplay();
-            ShowDialog();  
+            ShowDialog();
+        }
+
+        public void GetDetails(ref byte prSortOrder)
+        {
+            prSortOrder = _SortOrder;
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -156,20 +167,6 @@ namespace Version_1_C
                 }
             }
             else e.Handled = e.KeyChar != (char)Keys.Back;
-        }
-
-        private void txtPhone_TextChanged(object sender, EventArgs e)
-        {
-            //if (txtAnswer.Text.Length > 0 && txtAnswer.Text.Length < 2)
-            //{
-            //    answer = txtAnswer.Text;
-            //    DialogResult = DialogResult.OK;
-            //    this.Close();
-            //}
-            //else
-            //{
-            //    lblError.Text = "Please enter only one character into the text box.";
-            //}
         }
     }
 }
